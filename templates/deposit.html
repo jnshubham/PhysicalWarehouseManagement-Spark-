@@ -8,46 +8,37 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
               <a class="navbar-brand" href="#">SK Warehouse 🌟</a>
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-mdb-toggle="collapse"
-                data-mdb-target="#navbarNav"
-                aria-controls="navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <i class="fas fa-bars"></i>
+              <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+                  <i class="fas fa-bars"></i>
               </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/deposit">Deposit</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/reciept">Reciept</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled"
-                      >Disabled</a
-                    >
-                  </li>
-                </ul>
-              </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/deposit">Deposit</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reciept">Reciept</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/stacks">Stacks</a>
+                    </li>
+                    </ul>
+                </div>
             </div>
-          </nav>
+        </nav>
         <div class="container">
             <div id="content" class="col">
                 <form method="POST" action="{{url_for('deposit')}}" id="form_submit">    
                 <br />
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col">
                         <div class="card border border-success shadow-0 mb-3">
                             <h5 class="card-header">Deposit Details</h5>
                             <div class="card-body">
+                                <p style="color:green">{{data}}</p>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
@@ -62,33 +53,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
-                                
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="grain" class="bmd-label-floating">Grain:</label>
-                                            <input class="form-control" id="grain" name="grain" type="text" required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="bagsQuantity" class="bmd-label-floating">Bags Quantity:</label>
-                                            <input class="form-control" id="bagsQuantity" name="bagsQuantity" type="text"  required>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <label for="pricePerBag" class="bmd-label-floating">Price per bag:</label>
-                                            <input class="form-control" id="pricePerBag" name="pricePerBag" type="text"  required>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
@@ -96,7 +60,34 @@
                                             <input class="form-control" id="partyName" name="partyName" type="text"  required>
                                         </div>
                                     </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <select class="custom-select" id="grain" name="grain">
+                                                <option selected>Grain</option>
+                                                <option value="Wheat">Wheat</option>
+                                                <option value="Rice">Rice</option>
+                                                <option value="IDontKNow">IdontKnow</option>
+                                              </select>
+                                        </div>
+                                    </div>
                                 </div>
+                                
+                                
+                                <div class="row">
+                                    
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="bagsQuantity" class="bmd-label-floating">Bags Quantity:</label>
+                                            <input class="form-control" id="bagsQuantity" name="bagsQuantity" type="text"  required>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="pricePerBag" class="bmd-label-floating">Price per bag:</label>
+                                            <input class="form-control" id="pricePerBag" name="pricePerBag" type="text"  required>
+                                        </div>
+                                    </div>
+                                </div>                                
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
@@ -104,8 +95,6 @@
                                             <input class="form-control" id="depositDate" name="depositDate" type="datetime-local" placeholder=""  required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="stack" class="bmd-label-floating">Stack:</label>
@@ -120,6 +109,9 @@
                                             <input class="form-control" id="marketPrice" name="marketPrice" type="text"  required>
                                         </div>
                                     </div>
+                                    <div class="col">
+                                        
+                                    </div>
                                 </div>
                                 
                                 <div class="row">
@@ -133,15 +125,7 @@
                         </div>
                         
                     </div>
-                    <div class="col-sm-6">
-                        <div class="card border border-success shadow-0 mb-3">
-                            <div class="card-body">
-                                <p style="color:green">{{data}}</p>
-                                <a href='#'>Show unprocessed deposits </a>
-
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                     
 
